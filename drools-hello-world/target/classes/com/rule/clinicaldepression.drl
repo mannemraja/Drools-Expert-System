@@ -1,0 +1,218 @@
+package com.rule
+import com.javainuse.model.Clinicaldepression
+
+rule "hasanxiety"
+	when 
+		CdObj: Clinicaldepression(hasanxiety==true)
+	then
+		CdObj.setHasclinicaldepression(true);
+		CdObj.setMessage("hasanxiety");
+	end
+rule "hasapathy"
+    when 
+       CdObj: Clinicaldepression(hasapathy==true)
+    then
+       CdObj.setHasclinicaldepression(true);
+       CdObj.setMessage("hasapathy");
+    end
+rule "hasgeneraldiscontent"
+    when
+       CdObj: Clinicaldepression(hasgeneraldiscontent==true)
+    then
+       CdObj.setHasclinicaldepression(true);
+       CdObj.setMessage("hasgeneraldiscontent");
+    end
+rule "hasguilt"
+    when
+      CdObj: Clinicaldepression(hasguilt==true)
+    then
+       CdObj.setHasclinicaldepression(true);
+       CdObj.setMessage("hasguilt");
+     end
+rule "hashopelessness"
+     when
+       CdObj: Clinicaldepression(hashopelessness==true)
+     then
+       CdObj.setHasclinicaldepression(true);
+       CdObj.setMessage("hashopelessness");
+       end
+rule "haslossofinterest"
+      when
+        CdObj: Clinicaldepression(haslossofinterest==true)
+      then
+        CdObj.setHasclinicaldepression(true);
+        CdObj.setMessage("haslossofinterest");
+      end
+rule "haslossofinterestinactivities"
+      when
+       CdObj: Clinicaldepression(haslossofinterestinactivities==true)
+      then
+       CdObj.setHasclinicaldepression(true);
+       CdObj.setMessage("haslossofinterestinactivities");
+       end
+rule "hasmoodswings"
+      when
+      CdObj: Clinicaldepression(hasmoodswings==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasmoodswings");
+      end
+rule "hassadness"
+      when
+      CdObj: Clinicaldepression(hassadness==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hassadness");
+      end
+rule "hasagitation"
+      when
+      CdObj: Clinicaldepression(hasagitation==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasagitation");
+      end
+rule "hasexcessivecrying"
+      when
+      CdObj: Clinicaldepression(hasexcessivecrying==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasexcessivecrying");
+      end
+rule "hasirritability"
+      when
+      CdObj: Clinicaldepression(hasirritability==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasirritability");
+      end
+rule "hasrestlessness"
+      when
+      CdObj: Clinicaldepression(hasrestlessness==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasrestlessness");
+      end
+rule "hasinsomnia"
+      when
+      CdObj: Clinicaldepression(hasinsomnia==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasinsomnia");
+      end
+rule "hasthoughtsofsuicide"
+      when
+      CdObj: Clinicaldepression(hasthoughtsofsuicide==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasthoughtsofsuicide");
+      end
+rule "hasweightgain"
+      when
+      CdObj: Clinicaldepression(hasweightgain==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasweightgain");
+      end
+rule "hasweightloss"
+      when
+      CdObj: Clinicaldepression(hasweightloss==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasweightloss");
+      end
+rule "haspoorappetite"
+      when
+      CdObj: Clinicaldepression(haspoorappetite==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("haspoorappetite");
+      end
+rule "hasexcessivehunger"
+      when
+      CdObj: Clinicaldepression(hasexcessivehunger==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasexcessivehunger");
+      end
+rule "hasfatigue"
+      when
+      CdObj: Clinicaldepression(hasfatigue==true)
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("hasfatigue");
+      end
+rule "c1"
+      when
+      CdObj: Clinicaldepression((hasfatigue==true && hasapathy==true)|| (hasgeneraldiscontent==true))
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c1");
+      end
+      
+rule "c2"
+      when
+       CdObj: Clinicaldepression((hasinsomnia==true || haspoorappetite==true) && (hasthoughtsofsuicide==true))
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c2");
+      end
+rule "c3"
+      when
+      CdObj: Clinicaldepression((hasweightgain==true || hasweightloss==true || haspoorappetite) && (hasexcessivehunger==true))
+      then 
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c3");
+      end
+rule "c4"
+      when
+      CdObj: Clinicaldepression((hasexcessivecrying==true))
+      then
+      CdObj.setHasclinicaldepression(false);
+      CdObj.setMessage("c4");
+      end
+rule "c5"
+      when
+      CdObj: Clinicaldepression((hasmoodswings==true && haslossofinterestinactivities==true))
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c5");
+      end
+rule "c6"
+      when
+      CdObj: Clinicaldepression((hassadness==true || hasagitation==true) && (hasinsomnia==true))
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c6");
+      end
+rule "c7"
+      when
+      CdObj: Clinicaldepression((haslossofinterestinactivities==true) || (hasweightloss==true) && (haspoorappetite==true))
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c7");
+      end
+rule "c8"
+      when
+      CdObj: Clinicaldepression((hasguilt==true) && (hasanxiety==true) || (haspoorappetite==true))
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c8");
+      end 
+rule "c9"
+      when
+      CdObj: Clinicaldepression((hasmoodswings==true) || (hasrestlessness==true) || (hasfatigue==true) && (hasgeneraldiscontent==true))
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c9");
+      end
+rule "c10"
+      when
+      CdObj: Clinicaldepression((hasexcessivehunger==true) && (hasagitation==true))
+      then
+      CdObj.setHasclinicaldepression(true);
+      CdObj.setMessage("c10");
+      end
+      
+      
+      
+        
